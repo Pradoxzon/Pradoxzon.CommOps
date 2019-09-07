@@ -1,4 +1,11 @@
-﻿
+﻿/**
+ * IntMath.cs
+ * 
+ * Author: Pradoxzon
+ * 
+ * This class defines extensions to the base integer types
+ * for common math operations.
+ */
 
 namespace Pradoxzon.CommOps.Math
 {
@@ -9,6 +16,10 @@ namespace Pradoxzon.CommOps.Math
     using System.Threading.Tasks;
 
 
+    /**
+     * <summary>Defines extensions to the base integer types
+     * for common math operations.</summary>
+     */
     public static class IntMath
     {
         #region Round
