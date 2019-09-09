@@ -1,6 +1,8 @@
 ﻿/**
  * IntMathTest.cs
  * 
+ * Copyright (c) 2019 Pradoxzon Dev
+ * 
  * Author: Pradoxzon
  * 
  * Tests for the IntMath class.
