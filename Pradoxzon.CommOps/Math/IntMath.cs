@@ -1,6 +1,8 @@
 ﻿/**
  * IntMath.cs
  * 
+ * Copyright (c) 2019 Pradoxzon Dev
+ * 
  * Author: Pradoxzon
  * 
  * This class defines extensions to the base integer types
