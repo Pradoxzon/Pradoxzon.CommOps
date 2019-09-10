@@ -23,10 +23,9 @@ namespace Pradoxzon.CommOps.Math
         #region Equals
         /**
          * <summary>Checks if two floating point numbers are equal
-         * with a tollerance of 0.000000001</summary>
-         * <param name="left">The first float to compare</param>
-         * <param name="right">The second float to compare</param>
-         * <returns>True if the floats are equal</returns>
+         * with a tollerance of 0.000000001.</summary>
+         * <param name="left">The first float to compare.</param>
+         * <param name="right">The second float to compare.</param>
          */
         public static bool Equals(float left, float right)
         {
@@ -35,11 +34,10 @@ namespace Pradoxzon.CommOps.Math
 
         /**
          * <summary>Checks if two floating point numbers are equal
-         * with a given tollerance</summary>
-         * <param name="left">The first float to compare</param>
-         * <param name="right">The second float to compare</param>
-         * <param name="tollerance">The tollerance to use when comparing</param>
-         * <returns>True if the floats are equal</returns>
+         * with a given tollerance.</summary>
+         * <param name="left">The first float to compare.</param>
+         * <param name="right">The second float to compare.</param>
+         * <param name="tollerance">The tollerance to use when comparing.</param>
          */
         public static bool Equals(float left, float right, float tollerance)
         {
@@ -49,9 +47,8 @@ namespace Pradoxzon.CommOps.Math
 
 
         /**
-         * <summary>Gets the square root of a number</summary>
-         * <param name="num">The number to get the square root of</param>
-         * <returns>The square root</returns>
+         * <summary>Gets the square root of a number.</summary>
+         * <param name="num">The number to get the square root of.</param>
          */
         public static float Sqrt(float num)
         {
@@ -61,9 +58,8 @@ namespace Pradoxzon.CommOps.Math
 
         #region Round
         /**
-         * <summary>Rounds a floating point number to the nearest integer value</summary>
-         * <param name="num">The number to round</param>
-         * <returns>The rounded number</returns>
+         * <summary>Rounds a floating point number to the nearest integer value.</summary>
+         * <param name="num">The number to round.</param>
          */
         public static float Round(float num)
         {
@@ -71,15 +67,14 @@ namespace Pradoxzon.CommOps.Math
         }
 
         /**
-         * <summary>Rounds a floating point number to the specified number of digits</summary>
-         * <param name="num">The number to round</param>
-         * <param name="decimals">The number of decimals to round to</param>
-         * <returns>The rounded number</returns>
+         * <summary>Rounds a floating point number to the specified number of digits.</summary>
+         * <param name="num">The number to round.</param>
+         * <param name="decimals">The number of decimals to round to.</param>
          */
         public static float Round(float num, int decimals)
         {
             // TODO: Can this be simplified?
-            throw new NotImplementedException($"This function needs to be checked for functionality.");
+            //throw new NotImplementedException($"This function needs to be checked for functionality.");
             double dnum = Convert.ToDouble(Convert.ToDecimal(num));
             return (float)Math.Round(num, decimals);
         }
