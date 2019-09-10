@@ -63,7 +63,7 @@ namespace Pradoxzon.CommOps.Math
          */
         public static float Round(float num)
         {
-            return (float)Math.Round(num);
+            return Convert.ToSingle(Math.Round(num));
         }
 
         /**
@@ -73,10 +73,7 @@ namespace Pradoxzon.CommOps.Math
          */
         public static float Round(float num, int decimals)
         {
-            // TODO: Can this be simplified?
-            //throw new NotImplementedException($"This function needs to be checked for functionality.");
-            double dnum = Convert.ToDouble(Convert.ToDecimal(num));
-            return (float)Math.Round(num, decimals);
+            return Convert.ToSingle(Math.Round(num, decimals));
         }
         #endregion
     }
