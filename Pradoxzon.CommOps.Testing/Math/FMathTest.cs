@@ -71,32 +71,30 @@ namespace Pradoxzon.CommOps.Testing.Math
         public void TestFMathRound()
         {
             float test1 = 3.1486f;
-            float expected1 = 3f;
-            Assert.IsTrue(expected1 == FMath.Round(test1),
-                $"The float should round down");
+            float res1 = 3f;
+            Assert.IsTrue(res1 == FMath.Round(test1),
+                $"The values for test 1 did not match:\n" +
+                $"FMath.Round({test1}) should equal {res1}, not {FMath.Round(test1)}");
 
             float test2 = 77.777f;
-            float expected2A = 78f;
-            float expected2B = 77f;
-            Assert.IsTrue(expected2A == FMath.Round(test2)
-                && expected2B != FMath.Round(test2),
-                $"The float should round up");
+            float res2 = 78f;
+            Assert.IsTrue(res2 == FMath.Round(test2),
+                $"The values for test 2 did not match:\n" +
+                $"FMath.Round({test2}) should equal {res2}, not {FMath.Round(test2)}");
 
             float test3 = 30.163388f;
             int decim3 = 5;
-            float expected3A = 30.16339f;
-            float expected3B = 30.16338f;
-            Assert.IsTrue(expected3A == FMath.Round(test3, decim3)
-                && expected3B != FMath.Round(test3, decim3),
-                $"The float should round to the nearest specified decimal place");
+            float res3 = 30.16339f;
+            Assert.IsTrue(res3 == FMath.Round(test3, decim3),
+                $"The values for test 3 did not match:\n" +
+                $"FMath.Round({test3}, {decim3}) should equal {res3}, not {FMath.Round(test3, decim3)}");
 
-            float test4 = 0.555555f;
+            float test4 = 0.123455f;
             int decim4 = 5;
-            float expected4A = 0.55556f;
-            float expected4B = 0.55555f;
-            Assert.IsTrue(expected4A == FMath.Round(test4, decim4)
-                && expected4B != FMath.Round(test4, decim4),
-                $"The float should round up: {FMath.Round(test4, 5)}");
+            float res4 = 0.12346f;
+            Assert.IsTrue(res4 == FMath.Round(test4, decim4),
+                $"The values for test 4 did not match:\n" +
+                $"FMath.Round({test4}, {decim4}) should equal {res4}, not {FMath.Round(test4, decim4)}");
         }
     }
 }
