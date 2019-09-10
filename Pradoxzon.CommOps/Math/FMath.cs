@@ -58,7 +58,11 @@ namespace Pradoxzon.CommOps.Math
 
         #region Round
         /**
-         * <summary>Rounds a floating point number to the nearest integer value.</summary>
+         * <summary>Rounds a floating point number to the nearest integer value.
+         * <para>The float to be rounded is converted to a double before rounding takes place.
+         * This may cause the resulting value to be slightly different than expected
+         * due to differences in representation of some numbers between single
+         * and double precision.</para></summary>
          * <param name="num">The number to round.</param>
          */
         public static float Round(float num)
@@ -67,7 +71,11 @@ namespace Pradoxzon.CommOps.Math
         }
 
         /**
-         * <summary>Rounds a floating point number to the specified number of digits.</summary>
+         * <summary>Rounds a floating point number to the specified number of digits.
+         * <para>The float to be rounded is converted to a double before rounding takes place.
+         * This may cause the resulting value to be slightly different than expected
+         * due to differences in representation of some numbers between single
+         * and double precision.</para></summary>
          * <param name="num">The number to round.</param>
          * <param name="decimals">The number of decimals to round to.</param>
          */
