@@ -400,5 +400,127 @@ namespace Pradoxzon.CommOps.Math
                 : num;
         }
         #endregion
+
+
+        #region Clamp
+        /// <summary>Clamps a <see cref="sbyte"/> to the inclusive range of
+        /// <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="num">The number to clamp.</param>
+        /// <param name="min">The minimum of the clamp range, inclusive.</param>
+        /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        public static sbyte Clamp(this sbyte num, sbyte min, sbyte max)
+        {
+            return (num >= min)
+                ? (num <= max)
+                    ? num
+                    : max
+                : min;
+        }
+
+
+        /// <summary>Clamps a <see cref="byte"/> to the inclusive range of
+        /// <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="num">The number to clamp.</param>
+        /// <param name="min">The minimum of the clamp range, inclusive.</param>
+        /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        public static byte Clamp(this byte num, byte min, byte max)
+        {
+            return (num >= min)
+                ? (num <= max)
+                    ? num
+                    : max
+                : min;
+        }
+
+
+        /// <summary>Clamps a <see cref="short"/> to the inclusive range of
+        /// <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="num">The number to clamp.</param>
+        /// <param name="min">The minimum of the clamp range, inclusive.</param>
+        /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        public static short Clamp(this short num, short min, short max)
+        {
+            return (num >= min)
+                ? (num <= max)
+                    ? num
+                    : max
+                : min;
+        }
+
+
+        /// <summary>Clamps a <see cref="ushort"/> to the inclusive range of
+        /// <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="num">The number to clamp.</param>
+        /// <param name="min">The minimum of the clamp range, inclusive.</param>
+        /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        public static ushort Clamp(this ushort num, ushort min, ushort max)
+        {
+            return (num >= min)
+                ? (num <= max)
+                    ? num
+                    : max
+                : min;
+        }
+
+
+        /// <summary>Clamps a <see cref="int"/> to the inclusive range of
+        /// <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="num">The number to clamp.</param>
+        /// <param name="min">The minimum of the clamp range, inclusive.</param>
+        /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        public static int Clamp(this int num, int min, int max)
+        {
+            return (num >= min)
+                ? (num <= max)
+                    ? num
+                    : max
+                : min;
+        }
+
+
+        /// <summary>Clamps a <see cref="uint"/> to the inclusive range of
+        /// <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="num">The number to clamp.</param>
+        /// <param name="min">The minimum of the clamp range, inclusive.</param>
+        /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        public static uint Clamp(this uint num, uint min, uint max)
+        {
+            return (num >= min)
+                ? (num <= max)
+                    ? num
+                    : max
+                : min;
+        }
+
+
+        /// <summary>Clamps a <see cref="long"/> to the inclusive range of
+        /// <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="num">The number to clamp.</param>
+        /// <param name="min">The minimum of the clamp range, inclusive.</param>
+        /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        public static long Clamp(this long num, long min, long max)
+        {
+            return (num >= min)
+                ? (num <= max)
+                    ? num
+                    : max
+                : min;
+        }
+
+
+        /// <summary>Clamps a <see cref="ulong"/> to the inclusive range of
+        /// <paramref name="min"/> and <paramref name="max"/>.</summary>
+        /// <param name="num">The number to clamp.</param>
+        /// <param name="min">The minimum of the clamp range, inclusive.</param>
+        /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        public static ulong Clamp(this ulong num, ulong min, ulong max)
+        {
+            return (num >= min)
+                ? (num <= max)
+                    ? num
+                    : max
+                : min;
+        }
+        #endregion
     }
 }
