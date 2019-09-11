@@ -30,6 +30,16 @@ namespace Pradoxzon.CommOps.Math
 
         /// <summary>The number of bytes in a 64 bit object</summary>
         public const int NumBytes64Bits = 8;
+
+
+        /// <summary>The number of bits in a 16-bit object</summary>
+        public const int Bits16 = 16;
+
+        /// <summary>The number of bits in a 32-bit object</summary>
+        public const int Bits32 = 32;
+
+        /// <summary>The number of bits in a 64-bit object</summary>
+        public const int Bits64 = 64;
         #endregion
 
 
