@@ -9,6 +9,7 @@
  * working with bytes and for treating numbers as bits.
  */
 
+
 namespace Pradoxzon.CommOps.Math
 {
     using System;
@@ -36,6 +37,23 @@ namespace Pradoxzon.CommOps.Math
         #endregion
 
 
+        /**
+         * <summary>Performs a bitwise shift to the left on an integer with wraparound</summary>
+         * <param name="value">The integer value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static int BitShiftWrap(int value, int positions)
+        {
+            // Ensure: 0 <= positions <= 31
+            positions = positions.Clamp(0, 31);
 
+            // Save the existing bit pattern, but interpret it as an unsigned integer.
+            uint number = BitConverter.ToUInt32(BitConverter.GetBytes(value), 0);
+            // Preserve the bits to be discarded.
+            uint wrapped = number >> (32 - positions);
+            // Shift and wrap the discarded bits.
+            return BitConverter.ToInt32(BitConverter.GetBytes((number << positions) | wrapped), 0);
+        }
     }
 }
