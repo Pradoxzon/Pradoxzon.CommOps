@@ -403,13 +403,28 @@ namespace Pradoxzon.CommOps.Math
 
 
         #region Clamp
+        /// <summary>Throws an exception when min is greater than max
+        /// for the Clamp functions.</summary>
+        /// <exception cref="ArgumentException"></exception>
+        private static void ThrowMinMaxException() =>
+            throw new ArgumentException(
+                $"The min value of the range should be " +
+                $"less than the max value of the range.");
+
+
         /// <summary>Clamps a <see cref="sbyte"/> to the inclusive range of
         /// <paramref name="min"/> and <paramref name="max"/>.</summary>
         /// <param name="num">The number to clamp.</param>
         /// <param name="min">The minimum of the clamp range, inclusive.</param>
         /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static sbyte Clamp(this sbyte num, sbyte min, sbyte max)
         {
+            if (min > max)
+            {
+                ThrowMinMaxException();
+            }
+
             return (num >= min)
                 ? (num <= max)
                     ? num
@@ -423,8 +438,14 @@ namespace Pradoxzon.CommOps.Math
         /// <param name="num">The number to clamp.</param>
         /// <param name="min">The minimum of the clamp range, inclusive.</param>
         /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static byte Clamp(this byte num, byte min, byte max)
         {
+            if (min > max)
+            {
+                ThrowMinMaxException();
+            }
+
             return (num >= min)
                 ? (num <= max)
                     ? num
@@ -438,8 +459,14 @@ namespace Pradoxzon.CommOps.Math
         /// <param name="num">The number to clamp.</param>
         /// <param name="min">The minimum of the clamp range, inclusive.</param>
         /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static short Clamp(this short num, short min, short max)
         {
+            if (min > max)
+            {
+                ThrowMinMaxException();
+            }
+
             return (num >= min)
                 ? (num <= max)
                     ? num
@@ -453,8 +480,14 @@ namespace Pradoxzon.CommOps.Math
         /// <param name="num">The number to clamp.</param>
         /// <param name="min">The minimum of the clamp range, inclusive.</param>
         /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static ushort Clamp(this ushort num, ushort min, ushort max)
         {
+            if (min > max)
+            {
+                ThrowMinMaxException();
+            }
+
             return (num >= min)
                 ? (num <= max)
                     ? num
@@ -468,8 +501,14 @@ namespace Pradoxzon.CommOps.Math
         /// <param name="num">The number to clamp.</param>
         /// <param name="min">The minimum of the clamp range, inclusive.</param>
         /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static int Clamp(this int num, int min, int max)
         {
+            if (min > max)
+            {
+                ThrowMinMaxException();
+            }
+
             return (num >= min)
                 ? (num <= max)
                     ? num
@@ -483,8 +522,14 @@ namespace Pradoxzon.CommOps.Math
         /// <param name="num">The number to clamp.</param>
         /// <param name="min">The minimum of the clamp range, inclusive.</param>
         /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static uint Clamp(this uint num, uint min, uint max)
         {
+            if (min > max)
+            {
+                ThrowMinMaxException();
+            }
+
             return (num >= min)
                 ? (num <= max)
                     ? num
@@ -498,8 +543,14 @@ namespace Pradoxzon.CommOps.Math
         /// <param name="num">The number to clamp.</param>
         /// <param name="min">The minimum of the clamp range, inclusive.</param>
         /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static long Clamp(this long num, long min, long max)
         {
+            if (min > max)
+            {
+                ThrowMinMaxException();
+            }
+
             return (num >= min)
                 ? (num <= max)
                     ? num
@@ -513,8 +564,14 @@ namespace Pradoxzon.CommOps.Math
         /// <param name="num">The number to clamp.</param>
         /// <param name="min">The minimum of the clamp range, inclusive.</param>
         /// <param name="max">The maximum of the clamp range, inclusive.</param>
+        /// <exception cref="ArgumentException"></exception>
         public static ulong Clamp(this ulong num, ulong min, ulong max)
         {
+            if (min > max)
+            {
+                ThrowMinMaxException();
+            }
+
             return (num >= min)
                 ? (num <= max)
                     ? num
