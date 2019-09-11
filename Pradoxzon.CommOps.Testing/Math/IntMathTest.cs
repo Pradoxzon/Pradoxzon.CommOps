@@ -1108,5 +1108,471 @@ namespace Pradoxzon.CommOps.Testing.Math
                 $"{test3}.Floor({val3}) should equal {res3}, not {test3.Floor(val3)}");
         }
         #endregion
+
+
+        #region TestClamp
+        [TestMethod]
+        public void TestClampSbyte()
+        {
+            // Number above max value
+            sbyte test = sbyte.MaxValue;
+            sbyte min = sbyte.MinValue;
+            sbyte max = 20;
+            sbyte res = 20;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 1 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at max value
+            test = 55;
+            min = 0;
+            max = 55;
+            res = 55;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 2 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number inside range
+            test = -77;
+            min = -80;
+            max = -33;
+            res = -77;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 3 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at min value
+            test = -1;
+            min = -1;
+            max = 0;
+            res = -1;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 4 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number below min value
+            test = 5;
+            min = 10;
+            max = 100;
+            res = 10;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 5 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Min value is greater than max value
+            test = 0;
+            min = 10;
+            max = -10;
+            res = 0;
+            Assert.ThrowsException<ArgumentException>(() => test.Clamp(min, max),
+                $"Test 6 did not throw an ArgumentException.");
+        }
+
+
+        [TestMethod]
+        public void TestClampByte()
+        {
+            // Number above max value
+            byte test = byte.MaxValue;
+            byte min = byte.MinValue;
+            byte max = 20;
+            byte res = 20;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 1 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at max value
+            test = 55;
+            min = 0;
+            max = 55;
+            res = 55;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 2 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number inside range
+            test = 77;
+            min = 33;
+            max = 80;
+            res = 77;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 3 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at min value
+            test = 0;
+            min = 0;
+            max = 1;
+            res = 0;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 4 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number below min value
+            test = 5;
+            min = 10;
+            max = 100;
+            res = 10;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 5 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Min value is greater than max value
+            test = 0;
+            min = 10;
+            max = 0;
+            res = 0;
+            Assert.ThrowsException<ArgumentException>(() => test.Clamp(min, max),
+                $"Test 6 did not throw an ArgumentException.");
+        }
+
+
+        [TestMethod]
+        public void TestClampShort()
+        {
+            // Number above max value
+            short test = short.MaxValue;
+            short min = short.MinValue;
+            short max = 20;
+            short res = 20;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 1 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at max value
+            test = 55;
+            min = 0;
+            max = 55;
+            res = 55;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 2 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number inside range
+            test = -77;
+            min = -80;
+            max = -33;
+            res = -77;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 3 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at min value
+            test = -1;
+            min = -1;
+            max = 0;
+            res = -1;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 4 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number below min value
+            test = 5;
+            min = 10;
+            max = 100;
+            res = 10;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 5 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Min value is greater than max value
+            test = 0;
+            min = 10;
+            max = -10;
+            res = 0;
+            Assert.ThrowsException<ArgumentException>(() => test.Clamp(min, max),
+                $"Test 6 did not throw an ArgumentException.");
+        }
+
+
+        [TestMethod]
+        public void TestClampUshort()
+        {
+            // Number above max value
+            ushort test = ushort.MaxValue;
+            ushort min = ushort.MinValue;
+            ushort max = 20;
+            ushort res = 20;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 1 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at max value
+            test = 55;
+            min = 0;
+            max = 55;
+            res = 55;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 2 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number inside range
+            test = 77;
+            min = 33;
+            max = 80;
+            res = 77;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 3 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at min value
+            test = 0;
+            min = 0;
+            max = 1;
+            res = 0;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 4 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number below min value
+            test = 5;
+            min = 10;
+            max = 100;
+            res = 10;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 5 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Min value is greater than max value
+            test = 0;
+            min = 10;
+            max = 0;
+            res = 0;
+            Assert.ThrowsException<ArgumentException>(() => test.Clamp(min, max),
+                $"Test 6 did not throw an ArgumentException.");
+        }
+
+
+        [TestMethod]
+        public void TestClampInt()
+        {
+            // Number above max value
+            int test = int.MaxValue;
+            int min = int.MinValue;
+            int max = 20;
+            int res = 20;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 1 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at max value
+            test = 55;
+            min = 0;
+            max = 55;
+            res = 55;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 2 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number inside range
+            test = -77;
+            min = -80;
+            max = -33;
+            res = -77;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 3 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at min value
+            test = -1;
+            min = -1;
+            max = 0;
+            res = -1;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 4 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number below min value
+            test = 5;
+            min = 10;
+            max = 100;
+            res = 10;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 5 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Min value is greater than max value
+            test = 0;
+            min = 10;
+            max = -10;
+            res = 0;
+            Assert.ThrowsException<ArgumentException>(() => test.Clamp(min, max),
+                $"Test 6 did not throw an ArgumentException.");
+        }
+
+
+        [TestMethod]
+        public void TestClampUint()
+        {
+            // Number above max value
+            uint test = uint.MaxValue;
+            uint min = uint.MinValue;
+            uint max = 20;
+            uint res = 20;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 1 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at max value
+            test = 55;
+            min = 0;
+            max = 55;
+            res = 55;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 2 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number inside range
+            test = 77;
+            min = 33;
+            max = 80;
+            res = 77;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 3 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at min value
+            test = 0;
+            min = 0;
+            max = 1;
+            res = 0;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 4 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number below min value
+            test = 5;
+            min = 10;
+            max = 100;
+            res = 10;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 5 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Min value is greater than max value
+            test = 0;
+            min = 10;
+            max = 0;
+            res = 0;
+            Assert.ThrowsException<ArgumentException>(() => test.Clamp(min, max),
+                $"Test 6 did not throw an ArgumentException.");
+        }
+
+
+        [TestMethod]
+        public void TestClampLong()
+        {
+            // Number above max value
+            long test = long.MaxValue;
+            long min = long.MinValue;
+            long max = 20;
+            long res = 20;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 1 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at max value
+            test = 55;
+            min = 0;
+            max = 55;
+            res = 55;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 2 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number inside range
+            test = -77;
+            min = -80;
+            max = -33;
+            res = -77;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 3 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at min value
+            test = -1;
+            min = -1;
+            max = 0;
+            res = -1;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 4 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number below min value
+            test = 5;
+            min = 10;
+            max = 100;
+            res = 10;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 5 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Min value is greater than max value
+            test = 0;
+            min = 10;
+            max = -10;
+            res = 0;
+            Assert.ThrowsException<ArgumentException>(() => test.Clamp(min, max),
+                $"Test 6 did not throw an ArgumentException.");
+        }
+
+
+        [TestMethod]
+        public void TestClampUlong()
+        {
+            // Number above max value
+            ulong test = ulong.MaxValue;
+            ulong min = ulong.MinValue;
+            ulong max = 20;
+            ulong res = 20;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 1 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at max value
+            test = 55;
+            min = 0;
+            max = 55;
+            res = 55;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 2 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number inside range
+            test = 77;
+            min = 33;
+            max = 80;
+            res = 77;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 3 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number at min value
+            test = 0;
+            min = 0;
+            max = 1;
+            res = 0;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 4 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Number below min value
+            test = 5;
+            min = 10;
+            max = 100;
+            res = 10;
+            Assert.IsTrue(res == test.Clamp(min, max),
+                $"The values for test 5 did not match:\n" +
+                $"{test}.Clamp({min}, {max}) should equal {res}, not {test.Clamp(min, max)}");
+
+            // Min value is greater than max value
+            test = 0;
+            min = 10;
+            max = 0;
+            res = 0;
+            Assert.ThrowsException<ArgumentException>(() => test.Clamp(min, max),
+                $"Test 6 did not throw an ArgumentException.");
+        }
+        #endregion
     }
 }
