@@ -24,6 +24,18 @@ namespace Pradoxzon.CommOps.Math
      */
     public static class BitMath
     {
-        
+        #region Constants
+        /// <summary>The number of bytes in a 16 bit objcet</summary>
+        public const int NumBytes16Bits = 2;
+
+        /// <summary>The number of bytes in a 32 bit object</summary>
+        public const int NumBytes32Bits = 4;
+
+        /// <summary>The number of bytes in a 64 bit object</summary>
+        public const int NumBytes64Bits = 8;
+        #endregion
+
+
+
     }
 }
