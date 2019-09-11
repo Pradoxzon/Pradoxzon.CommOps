@@ -34,12 +34,13 @@ namespace Pradoxzon.CommOps.Math
 
 
         /**
-         * <summary>Performs a bitwise shift to the left on an integer with wraparound</summary>
+         * <summary>Performs a bitwise shift to the left on a 32-bit integer
+         * with wraparound</summary>
          * <param name="value">The integer value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
-        public static int BitShiftWrap(int value, int positions)
+        public static int BitShiftWrap32(int value, int positions)
         {
             // Ensure: 0 <= positions <= 31
             positions = positions.Clamp(0, 31);
