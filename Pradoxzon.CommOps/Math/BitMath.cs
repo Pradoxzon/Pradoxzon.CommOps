@@ -44,6 +44,27 @@ namespace Pradoxzon.CommOps.Math
 
 
         /**
+         * <summary>Performs a bitwise shift to the left on a 16-bit integer
+         * with wraparound</summary>
+         * <param name="value">The short value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static short BitShiftWrap16(short value, short positions)
+        {
+            // Ensure: 0 <= positions <= 15
+            positions = positions.Clamp(0, Bits16 - 1);
+
+            // Save the existing bit pattern as an unsigned short
+            ushort number = BitConverter.ToUInt16(BitConverter.GetBytes(value), 0);
+            // Preserve the bits to be discarded
+            int wrapped = number >> (Bits16 - positions);
+            // Shift and wrap the discarded bits
+            return BitConverter.ToInt16(BitConverter.GetBytes((ushort)((number << positions) | wrapped)), 0);
+        }
+
+
+        /**
          * <summary>Performs a bitwise shift to the left on a 32-bit integer
          * with wraparound</summary>
          * <param name="value">The integer value to shift</param>
@@ -53,13 +74,13 @@ namespace Pradoxzon.CommOps.Math
         public static int BitShiftWrap32(int value, int positions)
         {
             // Ensure: 0 <= positions <= 31
-            positions = positions.Clamp(0, 31);
+            positions = positions.Clamp(0, Bits32 - 1);
 
-            // Save the existing bit pattern, but interpret it as an unsigned integer.
+            // Save the existing bit pattern as an unsigned integer
             uint number = BitConverter.ToUInt32(BitConverter.GetBytes(value), 0);
-            // Preserve the bits to be discarded.
-            uint wrapped = number >> (32 - positions);
-            // Shift and wrap the discarded bits.
+            // Preserve the bits to be discarded
+            uint wrapped = number >> (Bits32 - positions);
+            // Shift and wrap the discarded bits
             return BitConverter.ToInt32(BitConverter.GetBytes((number << positions) | wrapped), 0);
         }
     }
