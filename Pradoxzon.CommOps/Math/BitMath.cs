@@ -43,24 +43,47 @@ namespace Pradoxzon.CommOps.Math
         #endregion
 
 
+        #region BitShiftRight
+
+        #endregion
+
+
+        #region BitShiftLeft
         /**
-         * <summary>Performs a bitwise shift to the left on a 16-bit integer
-         * with wraparound</summary>
-         * <param name="value">The short value to shift</param>
+         * <summary>Performs a bitwise shift to the left on a
+         * 16-bit integer with wraparound</summary>
+         * <param name="number">The short value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
-        public static short BitShiftWrap16(short value, short positions)
+        public static short BitShiftLeft(short number, short positions)
         {
             // Ensure: 0 <= positions <= 15
             positions = positions.Clamp(0, Bits16 - 1);
-
-            // Save the existing bit pattern as an unsigned short
-            ushort number = BitConverter.ToUInt16(BitConverter.GetBytes(value), 0);
+            
             // Preserve the bits to be discarded
             int wrapped = number >> (Bits16 - positions);
             // Shift and wrap the discarded bits
             return BitConverter.ToInt16(BitConverter.GetBytes((ushort)((number << positions) | wrapped)), 0);
+        }
+
+
+        /**
+         * <summary>Performs a bitwise shift to the left on a
+         * 16-bit unsigned integer with wraparound</summary>
+         * <param name="number">The ushort value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static ushort BitShiftLeft(ushort number, ushort positions)
+        {
+            // Ensure: 0 <= positions <= 15
+            positions = positions.Clamp(0, Bits16 - 1);
+            
+            // Preserve the bits to be discarded
+            int wrapped = number >> (Bits16 - positions);
+            // Shift and wrap the discarded bits
+            return BitConverter.ToUInt16(BitConverter.GetBytes((ushort)((number << positions) | wrapped)), 0);
         }
 
 
@@ -71,7 +94,7 @@ namespace Pradoxzon.CommOps.Math
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
-        public static int BitShiftWrap32(int value, int positions)
+        public static int BitShiftLeft(int value, int positions)
         {
             // Ensure: 0 <= positions <= 31
             positions = positions.Clamp(0, Bits32 - 1);
@@ -83,5 +106,6 @@ namespace Pradoxzon.CommOps.Math
             // Shift and wrap the discarded bits
             return BitConverter.ToInt32(BitConverter.GetBytes((number << positions) | wrapped), 0);
         }
+        #endregion
     }
 }
