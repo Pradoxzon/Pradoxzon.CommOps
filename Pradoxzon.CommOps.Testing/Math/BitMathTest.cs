@@ -24,6 +24,9 @@ namespace Pradoxzon.CommOps.Testing.Math
             Assert.IsTrue(NumBytes64Bits == 8,
                 $"There are 8 bytes in a 64-bit value, not {NumBytes64Bits} bytes.");
 
+            Assert.IsTrue(Bits8 == 8,
+                $"There are 8 bits in an 8-bit value, not {Bits8} bits.");
+
             Assert.IsTrue(Bits16 == 16,
                 $"There are 16 bits in a 16-bit value, not {Bits16} bits.");
 
