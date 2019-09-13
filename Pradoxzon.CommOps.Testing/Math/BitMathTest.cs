@@ -36,5 +36,24 @@ namespace Pradoxzon.CommOps.Testing.Math
             Assert.IsTrue(Bits64 == 64,
                 $"There are 64 bits in a 64-bit value, not {Bits64} bits.");
         }
+
+
+        #region TestBitShiftRight
+
+        #endregion
+
+
+        #region TestBitShiftLeft
+        [TestMethod]
+        public void TestBitShiftLeftSbyte()
+        {
+            sbyte test = -16;       // 1111_0000
+            sbyte shift = 3;
+            sbyte res = -121;       // 1000_0111
+            Assert.IsTrue(res == BitShiftLeft(test, shift),
+                $"The values for test 1 did not match:\n" +
+                $"BitShiftLeft({test}, {shift}) should equal {res}, not {BitShiftLeft(test, shift)}");
+        }
+        #endregion
     }
 }

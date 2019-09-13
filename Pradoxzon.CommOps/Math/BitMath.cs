@@ -54,6 +54,25 @@ namespace Pradoxzon.CommOps.Math
         #region BitShiftLeft
         /**
          * <summary>Performs a bitwise shift to the left on a
+         * 8-bit integer with wraparound</summary>
+         * <param name="number">The sbyte value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static sbyte BitShiftLeft(sbyte number, sbyte positions)
+        {
+            // Ensure: 0 <= positions <= 8
+            positions = positions.Clamp(0, Bits8 - 1);
+
+            // Preserve the bits to be discarded
+            int wrapped = number >> (Bits8 - positions);
+            // Shift and wrap the discarded bits
+            return (sbyte)((number << positions) | wrapped);
+        }
+
+
+        /**
+         * <summary>Performs a bitwise shift to the left on a
          * 16-bit integer with wraparound</summary>
          * <param name="number">The short value to shift</param>
          * <param name="positions">How many positions to shift</param>
