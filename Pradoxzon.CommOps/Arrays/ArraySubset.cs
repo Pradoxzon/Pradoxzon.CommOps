@@ -1,4 +1,14 @@
-﻿
+﻿/**
+ * ArraySubset.cs
+ * 
+ * Copyright (c) 2019 Pradoxzon Dev
+ * 
+ * Author: Shawn Peerenboom (Pradoxzon)
+ * 
+ * Defines an extension to arrays that copies part of the
+ * source array and returns the resulting array instead of
+ * assigning the result to a function argument.
+ */
 
 namespace Pradoxzon.CommOps.Arrays
 {
@@ -9,6 +19,11 @@ namespace Pradoxzon.CommOps.Arrays
     using System.Threading.Tasks;
 
 
+    /**
+     * Defines an extension to arrays that copies part of the
+     * source array and returns the resulting array instead of
+     * assigning the result to a function argument.
+     */
     public static class ArraySubset
     {
         /**
