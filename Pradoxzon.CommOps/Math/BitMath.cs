@@ -56,7 +56,7 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="sbyte"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 7 inclusive.</para></summary>
-         * <param name="number">The sbyte value to shift</param>
+         * <param name="number">The <see cref="sbyte"/> value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
@@ -85,9 +85,42 @@ namespace Pradoxzon.CommOps.Math
 
 
         /**
-         * <summary>Performs a bitwise shift to the left on a
-         * 16-bit integer with wraparound</summary>
-         * <param name="number">The short value to shift</param>
+         * <summary>Performs a bitwise shift to the left on a <see cref="byte"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 7 inclusive.</para></summary>
+         * <param name="number">The <see cref="byte"/> value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static byte BitShiftLeft(byte number, byte positions)
+        {
+            // Ensure: 0 <= positions <= 8
+            positions = positions.Clamp(0, Bits8 - 1);
+
+            // Temporarily hold the number in 32-bits
+            byte[] bits32 = new byte[NumBytes32Bits];
+
+            // GetBytes convers the sbyte to a short, so its output is 2 bytes
+            // Check for little endian to make sure the bytes are placed in the correct order
+            if (BitConverter.IsLittleEndian)
+                bits32[0] = number;
+            else
+                bits32[NumBytes32Bits - 1] = number;
+
+            // Save the bit pattern in a 32-bit unsigned int
+            uint number32 = BitConverter.ToUInt32(bits32, 0);
+            // Preserve the bits to be discarded
+            uint wrapped = number32 >> (Bits8 - positions);
+            // Shift and wrap the discarded bits
+            return (byte)((number32 << positions) | wrapped);
+        }
+
+
+        /**
+         * <summary>Performs a bitwise shift to the left on a <see cref="short"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 15 inclusive.</para></summary>
+         * <param name="number">The <see cref="short"/> value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
