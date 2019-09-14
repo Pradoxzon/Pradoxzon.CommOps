@@ -56,7 +56,7 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="sbyte"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 7 inclusive.</para></summary>
-         * <param name="number">The <see cref="sbyte"/> value to shift</param>
+         * <param name="number">The value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
@@ -78,7 +78,7 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="byte"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 7 inclusive.</para></summary>
-         * <param name="number">The <see cref="byte"/> value to shift</param>
+         * <param name="number">The value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
@@ -100,7 +100,7 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="short"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 15 inclusive.</para></summary>
-         * <param name="number">The <see cref="short"/> value to shift</param>
+         * <param name="number">The value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
@@ -110,7 +110,7 @@ namespace Pradoxzon.CommOps.Math
             positions = positions.Clamp(0, Bits16 - 1);
 
             // Save the bit pattern in a 32-bit unsigned int
-            uint number32 = BitConverter.ToUInt16(BitConverter.GetBytes(number), 0);
+            uint number32 = (ushort)number;
             // Preserve the bits to be discarded
             uint wrapped = number32 >> (Bits16 - positions);
             // Shift and wrap the discarded bits
@@ -119,9 +119,10 @@ namespace Pradoxzon.CommOps.Math
 
 
         /**
-         * <summary>Performs a bitwise shift to the left on a
-         * 16-bit unsigned integer with wraparound</summary>
-         * <param name="number">The ushort value to shift</param>
+         * <summary>Performs a bitwise shift to the left on a <see cref="ushort"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 15 inclusive.</para></summary>
+         * <param name="number">The value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
@@ -129,32 +130,100 @@ namespace Pradoxzon.CommOps.Math
         {
             // Ensure: 0 <= positions <= 15
             positions = positions.Clamp(0, Bits16 - 1);
-            
+
+            // Save the bit pattern in a 32-bit unsigned int
+            uint number32 = number;
             // Preserve the bits to be discarded
             int wrapped = number >> (Bits16 - positions);
             // Shift and wrap the discarded bits
-            return BitConverter.ToUInt16(BitConverter.GetBytes((ushort)((number << positions) | wrapped)), 0);
+            return (ushort)((number << positions) | wrapped);
         }
 
 
         /**
-         * <summary>Performs a bitwise shift to the left on a 32-bit integer
-         * with wraparound</summary>
-         * <param name="value">The integer value to shift</param>
+         * <summary>Performs a bitwise shift to the left on a <see cref="int"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 31 inclusive.</para></summary>
+         * <param name="number">The value to shift</param>
          * <param name="positions">How many positions to shift</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
-        public static int BitShiftLeft(int value, int positions)
+        public static int BitShiftLeft(int number, int positions)
         {
             // Ensure: 0 <= positions <= 31
             positions = positions.Clamp(0, Bits32 - 1);
 
-            // Save the existing bit pattern as an unsigned integer
-            uint number = BitConverter.ToUInt32(BitConverter.GetBytes(value), 0);
+            // Save the bit pattern in an unsigned int
+            uint number32 = (uint)number;
             // Preserve the bits to be discarded
-            uint wrapped = number >> (Bits32 - positions);
+            uint wrapped = number32 >> (Bits32 - positions);
             // Shift and wrap the discarded bits
-            return BitConverter.ToInt32(BitConverter.GetBytes((number << positions) | wrapped), 0);
+            return (int)((number32 << positions) | wrapped);
+        }
+
+
+        /**
+         * <summary>Performs a bitwise shift to the left on a <see cref="uint"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 31 inclusive.</para></summary>
+         * <param name="number">The value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static uint BitShiftLeft(uint number, uint positions)
+        {
+            // Ensure: 0 <= positions <= 31
+            positions = positions.Clamp(0, Bits32 - 1);
+            int intPos = (int)positions;
+
+            // Preserve the bits to be discarded
+            uint wrapped = number >> (Bits32 - intPos);
+            // Shift and wrap the discarded bits
+            return (number << intPos) | wrapped;
+        }
+
+
+        /**
+         * <summary>Performs a bitwise shift to the left on a <see cref="long"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 63 inclusive.</para></summary>
+         * <param name="number">The value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static long BitShiftLeft(long number, long positions)
+        {
+            // Ensure: 0 <= positions <= 63
+            positions = positions.Clamp(0, Bits64 - 1);
+            int intPos = (int)positions;
+
+            // Save the bit pattern in an unsigned int
+            ulong number64 = (ulong)number;
+            // Preserve the bits to be discarded
+            ulong wrapped = number64 >> (Bits64 - intPos);
+            // Shift and wrap the discarded bits
+            return (long)((number64 << intPos) | wrapped);
+        }
+
+
+        /**
+         * <summary>Performs a bitwise shift to the left on a <see cref="ulong"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 63 inclusive.</para></summary>
+         * <param name="number">The value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static ulong BitShiftLeft(ulong number, ulong positions)
+        {
+            // Ensure: 0 <= positions <= 63
+            positions = positions.Clamp(0, Bits64 - 1);
+            int intPos = (int)positions;
+
+            // Preserve the bits to be discarded
+            ulong wrapped = number >> (Bits64 - intPos);
+            // Shift and wrap the discarded bits
+            return (number << intPos) | wrapped;
         }
         #endregion
     }
