@@ -128,11 +128,13 @@ namespace Pradoxzon.CommOps.Math
         {
             // Ensure: 0 <= positions <= 15
             positions = positions.Clamp(0, Bits16 - 1);
-            
+
+            // Save the bit pattern in a 32-bit unsigned int
+            uint number32 = BitConverter.ToUInt16(BitConverter.GetBytes(number), 0);
             // Preserve the bits to be discarded
-            int wrapped = number >> (Bits16 - positions);
+            uint wrapped = number32 >> (Bits16 - positions);
             // Shift and wrap the discarded bits
-            return BitConverter.ToInt16(BitConverter.GetBytes((ushort)((number << positions) | wrapped)), 0);
+            return (short)((number32 << positions) | wrapped);
         }
 
 
