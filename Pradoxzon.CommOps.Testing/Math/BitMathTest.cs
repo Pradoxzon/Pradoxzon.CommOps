@@ -87,6 +87,51 @@ namespace Pradoxzon.CommOps.Testing.Math
                 $"The values for test 5 did not match:\n" +
                 $"BitShiftLeft({test}, {shift}) should equal {res}, not {BitShiftLeft(test, shift)}");
         }
+
+
+        [TestMethod]
+        public void TestBitShiftLeftByte()
+        {
+            // All 1s
+            byte test = 255;        // 1111_1111
+            byte shift = 5;
+            byte res = 255;         // 1111_1111
+            Assert.IsTrue(res == BitShiftLeft(test, shift),
+                $"The values for test 1 did not match:\n" +
+                $"BitShiftLeft({test}, {shift}) should equal {res}, not {BitShiftLeft(test, shift)}");
+
+            // Shift is above clamp range
+            test = 90;              // 0101_1010
+            shift = 16;
+            res = 45;               // 0010_1101
+            Assert.IsTrue(res == BitShiftLeft(test, shift),
+                $"The values for test 2 did not match:\n" +
+                $"BitShiftLeft({test}, {shift}) should equal {res}, not {BitShiftLeft(test, shift)}");
+
+            // Shift is inside clamp range
+            test = 240;             // 1111_0000
+            shift = 3;
+            res = 135;              // 1000_0111
+            Assert.IsTrue(res == BitShiftLeft(test, shift),
+                $"The values for test 3 did not match:\n" +
+                $"BitShiftLeft({test}, {shift}) should equal {res}, not {BitShiftLeft(test, shift)}");
+
+            // Shift is below clamp range
+            test = 204;             // 1100_1100
+            shift = 0;
+            res = 204;              // 1100_1100
+            Assert.IsTrue(res == BitShiftLeft(test, shift),
+                $"The values for test 4 did not match:\n" +
+                $"BitShiftLeft({test}, {shift}) should equal {res}, not {BitShiftLeft(test, shift)}");
+
+            // All 0s
+            test = 0;               // 0000_0000
+            shift = 1;
+            res = 0;                // 0000_0000
+            Assert.IsTrue(res == BitShiftLeft(test, shift),
+                $"The values for test 5 did not match:\n" +
+                $"BitShiftLeft({test}, {shift}) should equal {res}, not {BitShiftLeft(test, shift)}");
+        }
         #endregion
     }
 }
