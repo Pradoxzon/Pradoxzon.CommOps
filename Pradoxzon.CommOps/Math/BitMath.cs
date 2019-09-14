@@ -65,18 +65,8 @@ namespace Pradoxzon.CommOps.Math
             // Ensure: 0 <= positions <= 8
             positions = positions.Clamp(0, Bits8 - 1);
 
-            // Temporarily hold the number in 32-bits
-            byte[] bits32 = new byte[NumBytes32Bits];
-
-            // GetBytes convers the sbyte to a short, so its output is 2 bytes
-            // Check for little endian to make sure the bytes are placed in the correct order
-            if (BitConverter.IsLittleEndian)
-                bits32[0] = BitConverter.GetBytes(number)[0];
-            else
-                bits32[NumBytes32Bits - 1] = BitConverter.GetBytes(number)[NumBytes16Bits - 1];
-
             // Save the bit pattern in a 32-bit unsigned int
-            uint number32 = BitConverter.ToUInt32(bits32, 0);
+            uint number32 = (byte)number;
             // Preserve the bits to be discarded
             uint wrapped = number32 >> (Bits8 - positions);
             // Shift and wrap the discarded bits
@@ -97,18 +87,8 @@ namespace Pradoxzon.CommOps.Math
             // Ensure: 0 <= positions <= 8
             positions = positions.Clamp(0, Bits8 - 1);
 
-            // Temporarily hold the number in 32-bits
-            byte[] bits32 = new byte[NumBytes32Bits];
-
-            // GetBytes convers the sbyte to a short, so its output is 2 bytes
-            // Check for little endian to make sure the bytes are placed in the correct order
-            if (BitConverter.IsLittleEndian)
-                bits32[0] = number;
-            else
-                bits32[NumBytes32Bits - 1] = number;
-
             // Save the bit pattern in a 32-bit unsigned int
-            uint number32 = BitConverter.ToUInt32(bits32, 0);
+            uint number32 = number;
             // Preserve the bits to be discarded
             uint wrapped = number32 >> (Bits8 - positions);
             // Shift and wrap the discarded bits
