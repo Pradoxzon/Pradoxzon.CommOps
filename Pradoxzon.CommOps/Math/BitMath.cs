@@ -47,7 +47,48 @@ namespace Pradoxzon.CommOps.Math
 
 
         #region BitShiftRight
+        /**
+         * <summary>Performs a bitwise shift to the right on a <see cref="sbyte"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 7 inclusive.</para></summary>
+         * <param name="number">The value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static sbyte BitShiftRight(sbyte number, sbyte positions)
+        {
+            // Ensure: 0 <= positions <= 8
+            positions = positions.Clamp(0, Bits8 - 1);
 
+            // Save the bit pattern in a 32-bit unsigned int
+            uint number32 = (byte)number;
+            // Preserve the bits to be discarded
+            uint wrapped = (byte)(number32 << (Bits8 - positions));
+            // Shift and wrap the discarded bits
+            return (sbyte)((number32 >> positions) | wrapped);
+        }
+
+
+        /**
+         * <summary>Performs a bitwise shift to the right on a <see cref="byte"/> with wraparound.
+         * <para>The <paramref name="positions"/> parameter is clamped to the range
+         * 0 to 7 inclusive.</para></summary>
+         * <param name="number">The value to shift</param>
+         * <param name="positions">How many positions to shift</param>
+         * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
+         */
+        public static byte BitShiftRight(byte number, byte positions)
+        {
+            // Ensure: 0 <= positions <= 8
+            positions = positions.Clamp(0, Bits8 - 1);
+
+            // Save the bit pattern in a 32-bit unsigned int
+            uint number32 = number;
+            // Preserve the bits to be discarded
+            uint wrapped = (byte)(number32 << (Bits8 - positions));
+            // Shift and wrap the discarded bits
+            return (byte)((number32 >> positions) | wrapped);
+        }
         #endregion
 
 
