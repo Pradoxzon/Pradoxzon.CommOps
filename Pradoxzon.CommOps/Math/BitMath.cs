@@ -51,8 +51,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the right on a <see cref="sbyte"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 7 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static sbyte BitShiftRight(sbyte number, sbyte positions)
@@ -73,8 +73,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the right on a <see cref="byte"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 7 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static byte BitShiftRight(byte number, byte positions)
@@ -95,8 +95,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the right on a <see cref="short"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 15 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static short BitShiftRight(short number, short positions)
@@ -117,8 +117,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the right on a <see cref="ushort"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 15 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static ushort BitShiftRight(ushort number, ushort positions)
@@ -139,8 +139,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the right on a <see cref="int"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 31 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static int BitShiftRight(int number, int positions)
@@ -161,8 +161,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the right on a <see cref="uint"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 31 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static uint BitShiftRight(uint number, uint positions)
@@ -182,8 +182,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the right on a <see cref="long"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 63 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static long BitShiftRight(long number, long positions)
@@ -205,8 +205,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the right on a <see cref="ulong"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 63 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static ulong BitShiftRight(ulong number, ulong positions)
@@ -228,8 +228,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="sbyte"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 7 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static sbyte BitShiftLeft(sbyte number, sbyte positions)
@@ -250,8 +250,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="byte"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 7 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static byte BitShiftLeft(byte number, byte positions)
@@ -272,8 +272,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="short"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 15 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static short BitShiftLeft(short number, short positions)
@@ -294,8 +294,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="ushort"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 15 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static ushort BitShiftLeft(ushort number, ushort positions)
@@ -316,8 +316,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="int"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 31 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static int BitShiftLeft(int number, int positions)
@@ -338,8 +338,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="uint"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 31 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static uint BitShiftLeft(uint number, uint positions)
@@ -359,8 +359,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="long"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 63 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static long BitShiftLeft(long number, long positions)
@@ -382,8 +382,8 @@ namespace Pradoxzon.CommOps.Math
          * <summary>Performs a bitwise shift to the left on a <see cref="ulong"/> with wraparound.
          * <para>The <paramref name="positions"/> parameter is clamped to the range
          * 0 to 63 inclusive.</para></summary>
-         * <param name="number">The value to shift</param>
-         * <param name="positions">How many positions to shift</param>
+         * <param name="number">The value to shift.</param>
+         * <param name="positions">How many positions to shift.</param>
          * <seealso cref="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netframework-4.7.2"/>
          */
         public static ulong BitShiftLeft(ulong number, ulong positions)
