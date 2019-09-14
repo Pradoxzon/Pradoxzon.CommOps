@@ -39,7 +39,94 @@ namespace Pradoxzon.CommOps.Testing.Math
 
 
         #region TestBitShiftRight
+        [TestMethod]
+        public void TestBitShiftRightSbyte()
+        {
+            // All 1s
+            sbyte test = -1;                    // 1111_1111
+            sbyte shift = 5;
+            sbyte res = -1;                     // 1111_1111
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 1 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
 
+            // Shift is above clamp range
+            test = 0x5A;                        // 0101_1010
+            shift = 16;
+            res = -76;                          // 1011_0100
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 2 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+
+            // Shift is inside clamp range
+            test = -16;                         // 1111_0000
+            shift = 3;
+            res = 0x1E;                         // 0001_1110
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 3 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+
+            // Shift is below clamp range
+            test = 0x33;                        // 0011_0011
+            shift = -3;
+            res = 0x33;                         // 0011_0011
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 4 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+
+            // All 0s
+            test = 0;                           // 0000_0000
+            shift = 1;
+            res = 0;                            // 0000_0000
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 5 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+        }
+
+
+        [TestMethod]
+        public void TestBitShiftRightByte()
+        {
+            // All 1s
+            byte test = byte.MaxValue;          // 1111_1111
+            byte shift = 5;
+            byte res = byte.MaxValue;           // 1111_1111
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 1 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+
+            // Shift is above clamp range
+            test = 0x5A;                        // 0101_1010
+            shift = 16;
+            res = 0xB4;                         // 1011_0100
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 2 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+
+            // Shift is inside clamp range
+            test = 0xF0;                        // 1111_0000
+            shift = 3;
+            res = 0x1E;                         // 0001_1110
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 3 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+
+            // Shift is below clamp range
+            test = 0xCC;                        // 1100_1100
+            shift = 0;
+            res = 0xCC;                         // 1100_1100
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 4 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+
+            // All 0s
+            test = 0;                           // 0000_0000
+            shift = 1;
+            res = 0;                            // 0000_0000
+            Assert.IsTrue(res == BitShiftRight(test, shift),
+                $"The values for test 5 did not match:\n" +
+                $"BitShiftRight({test}, {shift}) should equal {res}, not {BitShiftRight(test, shift)}");
+        }
         #endregion
 
 
@@ -327,7 +414,7 @@ namespace Pradoxzon.CommOps.Testing.Math
 
             // Shift is above clamp range
             test = 6510615555426900570;         // 0101_1010_0101_1010_0101_1010_0101_1010_0101_1010_0101_1010_0101_1010_0101_1010
-            shift = 64;
+            shift = 128;
             res = 3255307777713450285;          // 0010_1101_0010_1101_0010_1101_0010_1101_0010_1101_0010_1101_0010_1101_0010_1101
             Assert.IsTrue(res == BitShiftLeft(test, shift),
                 $"The values for test 2 did not match:\n" +
@@ -372,7 +459,7 @@ namespace Pradoxzon.CommOps.Testing.Math
 
             // Shift is above clamp range
             test = 6510615555426900570;         // 0101_1010_0101_1010_0101_1010_0101_1010_0101_1010_0101_1010_0101_1010_0101_1010
-            shift = 64;
+            shift = 128;
             res = 3255307777713450285;          // 0010_1101_0010_1101_0010_1101_0010_1101_0010_1101_0010_1101_0010_1101_0010_1101
             Assert.IsTrue(res == BitShiftLeft(test, shift),
                 $"The values for test 2 did not match:\n" +
