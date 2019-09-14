@@ -35,7 +35,6 @@ namespace Pradoxzon.CommOps.Arrays
          * <param name="index">The index to start copying from.</param>
          * <param name="length">The number of elements to copy.</param>
          * <exception cref="ArgumentNullException"></exception>
-         * <exception cref="RankException"></exception>
          * <exception cref="ArgumentOutOfRangeException"></exception>
          * <exception cref="ArgumentException"></exception>
          */
