@@ -28,6 +28,25 @@ namespace Pradoxzon.CommOps.Arrays
     {
         /**
          * <summary>Creates an array from a source array using
+         * <see cref="Array.Copy(Array, Array, int)"/>.
+         * <para>The resulting array is returned by the function instead of
+         * being passed in as a parameter.</para></summary>
+         * <param name="source">The array to copy from.</param>
+         * <param name="length">The number of elements to copy.</param>
+         * <exception cref="ArgumentNullException"></exception>
+         * <exception cref="ArgumentOutOfRangeException"></exception>
+         * <exception cref="ArgumentException"></exception>
+         */
+        public static T[] Subset<T>(this T[] source, int length)
+        {
+            var result = new T[length];
+            Array.Copy(source, result, length);
+            return result;
+        }
+
+
+        /**
+         * <summary>Creates an array from a source array using
          * <see cref="Array.Copy(Array, int, Array, int, int)"/>.
          * <para>The resulting array is returned by the function instead of
          * being passed in as a parameter.</para></summary>
