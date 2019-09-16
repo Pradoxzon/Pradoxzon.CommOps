@@ -62,7 +62,43 @@ namespace Pradoxzon.CommOps.Testing.Arrays
 
 
         [TestMethod]
-        public void TestSubset()
+        public void TestSubsetLength()
+        {
+            // Normal operation
+            byte[] test = { 0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F };
+            int length = 3;
+            byte[] res = { 0x1A, 0x2B, 0x3C };
+            Assert.IsTrue(AreArraysEqual(res, test.Subset(length)),
+                $"The arrays for test 1 should match.");
+
+            // Null source array
+            test = null;
+            Assert.ThrowsException<ArgumentNullException>(() => test.Subset(length),
+                $"Test 2 should throw an ArgumentNullException.");
+
+            // Bad length of segment to copy
+            test = new byte[] { 0x55, 0x66 };
+            length = 20;
+            Assert.ThrowsException<ArgumentException>(() => test.Subset(length),
+                $"Test 4 should throw an ArgumentException.");
+
+            // Test alternate type 1
+            int[] test1 = { -5, -3, -1, 1, 3, 5 };
+            length = 2;
+            int[] res1 = { -5, -3 };
+            Assert.IsTrue(AreArraysEqual(res1, test1.Subset(length)),
+                $"The arrays for test 5 should match.");
+
+            // Test alternate type 2
+            string[] test2 = { "hello", "world", "!" };
+            string[] res2 = { "hello", "world" };
+            Assert.IsTrue(AreArraysEqual(res2, test2.Subset(length)),
+                $"The arrays for test 6 should match.");
+        }
+
+
+        [TestMethod]
+        public void TestSubsetIndex()
         {
             // Normal operation
             byte[] test = { 0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F };
@@ -104,8 +140,5 @@ namespace Pradoxzon.CommOps.Testing.Arrays
             Assert.IsTrue(AreArraysEqual(res2, test2.Subset(index, length)),
                 $"The arrays for test 6 should match.");
         }
-
-
-        
     }
 }
