@@ -54,9 +54,9 @@ namespace Pradoxzon.CommOps.Arrays
 
 
         /**
-         * <summary>Converts a byte array to a <see cref="short"/>.
+         * <summary>Converts a byte array into a <see cref="short"/>.
          * <para>The array must be 2 bytes long.</para></summary>
-         * <param name="source">The byte array to convert to a <see cref="short"/>.</param>
+         * <param name="source">The byte array to convert into a <see cref="short"/>.</param>
          * <param name="isLittleEndian">A bool indicating if the source array
          * is stored in little endian.</param>
          * <exception cref="InvalidOperationException"></exception>
@@ -71,18 +71,86 @@ namespace Pradoxzon.CommOps.Arrays
 
 
         /**
-         * <summary>Converts a byte array to a <see cref="ushort"/>.
+         * <summary>Converts a byte array into an <see cref="ushort"/>.
          * <para>The array must be 2 bytes long.</para></summary>
-         * <param name="source">The byte array to convert to a <see cref="ushort"/>.</param>
+         * <param name="source">The byte array to convert into an <see cref="ushort"/>.</param>
          * <param name="isLittleEndian">A bool indicating if the source array
          * is stored in little endian.</param>
          * <exception cref="InvalidOperationException"></exception>
          */
         public static ushort GetUshort(this byte[] source, bool isLittleEndian = false)
         {
-            // Create a ushort from the array and return the value
+            // Create an ushort from the array and return the value
             return BitConverter.ToUInt16(
                 CopyCheck(source, NumBytes16Bits, isLittleEndian),
+                0);
+        }
+
+
+        /**
+         * <summary>Converts a byte array into an <see cref="int"/>.
+         * <para>The array must be 4 bytes long.</para></summary>
+         * <param name="source">The byte array to convert into an <see cref="int"/>.</param>
+         * <param name="isLittleEndian">A bool indicating if the source array
+         * is stored in little endian.</param>
+         * <exception cref="InvalidOperationException"></exception>
+         */
+        public static int GetInt(this byte[] source, bool isLittleEndian = false)
+        {
+            // Create an int from the array and return the value
+            return BitConverter.ToInt32(
+                CopyCheck(source, NumBytes32Bits, isLittleEndian),
+                0);
+        }
+
+
+        /**
+         * <summary>Converts a byte array into an <see cref="uint"/>.
+         * <para>The array must be 4 bytes long.</para></summary>
+         * <param name="source">The byte array to convert into an <see cref="uint"/>.</param>
+         * <param name="isLittleEndian">A bool indicating if the source array
+         * is stored in little endian.</param>
+         * <exception cref="InvalidOperationException"></exception>
+         */
+        public static uint GetUint(this byte[] source, bool isLittleEndian = false)
+        {
+            // Create an uint from the array and return the value
+            return BitConverter.ToUInt32(
+                CopyCheck(source, NumBytes32Bits, isLittleEndian),
+                0);
+        }
+
+
+        /**
+         * <summary>Converts a byte array into a <see cref="long"/>.
+         * <para>The array must be 8 bytes long.</para></summary>
+         * <param name="source">The byte array to convert into a <see cref="long"/>.</param>
+         * <param name="isLittleEndian">A bool indicating if the source array
+         * is stored in little endian.</param>
+         * <exception cref="InvalidOperationException"></exception>
+         */
+        public static long GetLong(this byte[] source, bool isLittleEndian = false)
+        {
+            // Create a long from the array and return the value
+            return BitConverter.ToInt64(
+                CopyCheck(source, NumBytes64Bits, isLittleEndian),
+                0);
+        }
+
+
+        /**
+         * <summary>Converts a byte array into an <see cref="ulong"/>.
+         * <para>The array must be 8 bytes long.</para></summary>
+         * <param name="source">The byte array to convert into an <see cref="ulong"/>.</param>
+         * <param name="isLittleEndian">A bool indicating if the source array
+         * is stored in little endian.</param>
+         * <exception cref="InvalidOperationException"></exception>
+         */
+        public static ulong GetUlong(this byte[] source, bool isLittleEndian = false)
+        {
+            // Create an ulong from the array and return the value
+            return BitConverter.ToUInt64(
+                CopyCheck(source, NumBytes64Bits, isLittleEndian),
                 0);
         }
         #endregion
@@ -94,7 +162,7 @@ namespace Pradoxzon.CommOps.Arrays
         // Get double LE and BE
         #endregion
 
-        
+
         /**
          * <summary>Returns a checked and formatted copy of the source array for
          * use in the extension methods converting byte arrays to other types.</summary>
