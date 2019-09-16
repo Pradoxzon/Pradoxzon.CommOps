@@ -22,7 +22,10 @@ namespace Pradoxzon.CommOps.Math
     public static class BitMath
     {
         #region Constants
-        /// <summary>The number of bytes in a 16 bit objcet</summary>
+        /// <summary>The number of bytes in a 8 but object</summary>
+        public const int NumBytes8Bits = 1;
+
+        /// <summary>The number of bytes in a 16 bit object</summary>
         public const int NumBytes16Bits = 2;
 
         /// <summary>The number of bytes in a 32 bit object</summary>
