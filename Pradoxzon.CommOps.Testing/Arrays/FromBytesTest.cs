@@ -157,12 +157,29 @@ namespace Pradoxzon.CommOps.Testing.Arrays
         public void TestGetSbyte()
         {
             // Max value - Little endian
-
+            byte[] test = { 0x7f };
+            var res = sbyte.MaxValue;
+            Assert.IsTrue(res == test.GetSbyte(),
+                $"The values for test 1 did not match:\n" +
+                $"The array should equal {res}, not {test.GetSbyte()}");
 
             // Normal value - Big endian
-
+            test = new byte[] { 0xAA };
+            res = -86;
+            Assert.IsTrue(res == test.GetSbyte(),
+                $"The values for test 2 did not match:\n" +
+                $"The array should equal {res}, not {test.GetSbyte()}");
 
             // Min Value - Big endian
+            test = new byte[] { 0x80 };
+            res = sbyte.MinValue;
+            Assert.IsTrue(res == test.GetSbyte(),
+                $"The values for test 3 did not match:\n" +
+                $"The array should equal {res}, not {test.GetSbyte()}");
+
+            // Wrong size array
+            test = new byte[] { 0x11, 0x22 };
+            Assert.ThrowsException<InvalidOperationException>(() => test.GetSbyte());
         }
         #endregion
 
