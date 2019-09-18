@@ -28,7 +28,7 @@ namespace Pradoxzon.CommOps.Arrays
     {
         #region Strings
         /**
-         * <summary>Converts a byte array into an <see cref="string"/>.
+         * <summary>Converts a byte array into an UTF-16 <see cref="string"/>.
          * <para>The array must be a multiple of 2 bytes long.</para></summary>
          * <param name="source">The byte array to convert into a <see cref="string"/>.</param>
          * <param name="isLittleEndian">A bool indicating if the source array
@@ -65,8 +65,10 @@ namespace Pradoxzon.CommOps.Arrays
 
 
         /**
-         * <summary>Converts a byte array into an <see cref="List{T}"/> of strings.</summary>
-         * <param name="source">The byte array to convert into a <see cref="List{T}"/>.</param>
+         * <summary>Converts a byte array into a <see cref="List{T}"/>
+         * of UTF-16 strings.</summary>
+         * <param name="source">The byte array to convert into a
+         * <see cref="List{T}"/>.</param>
          * <param name="isLittleEndian">A bool indicating if the source array
          * is stored in little endian.</param>
          * <exception cref="InvalidOperationException"></exception>
