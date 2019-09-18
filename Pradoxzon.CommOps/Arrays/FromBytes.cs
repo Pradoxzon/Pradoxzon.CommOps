@@ -27,12 +27,76 @@ namespace Pradoxzon.CommOps.Arrays
     public static class FromBytes
     {
         #region Strings
-        // Get string LE and BE
+        /**
+         * <summary>Converts a byte array into an <see cref="string"/>.
+         * <para>The array must be a multiple of 2 bytes long.</para></summary>
+         * <param name="source">The byte array to convert into a <see cref="string"/>.</param>
+         * <param name="isLittleEndian">A bool indicating if the source array
+         * is stored in little endian.</param>
+         * <exception cref="InvalidOperationException"></exception>
+         */
+        public static string GetString(this byte[] source, bool isLittleEndian = false)
+        {
+            // Only convert if the source array is length bytes
+            if (source.Length % NumBytes16Bits != 0)
+                ThrowArrayLengthException(
+                    $"The array should contain a multiple of {NumBytes16Bits} bytes.");
+            
+            // Reverse the byte[]s if the system is Little Endian
+            bool reverse = isLittleEndian ^ BitConverter.IsLittleEndian;
 
-        // Get List<string> LE and BE
+            // Build an array of chars from the byte array
+            int numChars = source.Length / NumBytes16Bits;
+            byte[] chBytes = new byte[NumBytes16Bits];
+            char[] charAry = new char[numChars];
+            for (int i = 0; i < numChars; i++)
+            {
+                chBytes[0] = source[i * 2];
+                chBytes[1] = source[(i * 2) + 1];
+
+                if (reverse) Array.Reverse(chBytes);
+
+                charAry[i] = BitConverter.ToChar(chBytes, 0);
+            }
+
+            // Create an string from the char array and return the value
+            return new string(charAry);
+        }
+
+
+        /**
+         * <summary>Converts a byte array into an <see cref="List{T}"/> of strings.</summary>
+         * <param name="source">The byte array to convert into a <see cref="List{T}"/>.</param>
+         * <param name="isLittleEndian">A bool indicating if the source array
+         * is stored in little endian.</param>
+         * <exception cref="InvalidOperationException"></exception>
+         */
+        public static List<string> GetListString(this byte[] source, bool isLittleEndian = false)
+        {
+            var result = new List<string>();
+            int readIndex = 0;
+
+            // Get the number of strings in the byte array
+            int numStrings = source.Subset(NumBytes32Bits).GetInt();
+            readIndex += NumBytes32Bits;
+
+            // Get all of the strings from the byte array
+            int strLen = 0;
+            for (int i = 0; i < numStrings; i++)
+            {
+                strLen = source.Subset(readIndex, NumBytes32Bits).GetInt();
+                readIndex += NumBytes32Bits;
+
+                result.Add(source.Subset(readIndex, strLen * 2).GetString());
+                readIndex += strLen * 2;
+            }
+
+            // Return the list of strings
+            return result;
+        }
         #endregion
-        
-        
+
+
         #region Integers
         /**
          * <summary>Converts a byte array to a <see cref="sbyte"/>.
@@ -157,9 +221,38 @@ namespace Pradoxzon.CommOps.Arrays
 
 
         #region Floats
-        // Get float LE and BE
+        /**
+         * <summary>Converts a byte array into an <see cref="float"/>.
+         * <para>The array must be 4 bytes long.</para></summary>
+         * <param name="source">The byte array to convert into an <see cref="float"/>.</param>
+         * <param name="isLittleEndian">A bool indicating if the source array
+         * is stored in little endian.</param>
+         * <exception cref="InvalidOperationException"></exception>
+         */
+        public static float GetFloat(this byte[] source, bool isLittleEndian = false)
+        {
+            // Create an float from the array and return the value
+            return BitConverter.ToSingle(
+                CopyCheck(source, NumBytes32Bits, isLittleEndian),
+                0);
+        }
 
-        // Get double LE and BE
+
+        /**
+         * <summary>Converts a byte array into an <see cref="double"/>.
+         * <para>The array must be 8 bytes long.</para></summary>
+         * <param name="source">The byte array to convert into an <see cref="double"/>.</param>
+         * <param name="isLittleEndian">A bool indicating if the source array
+         * is stored in little endian.</param>
+         * <exception cref="InvalidOperationException"></exception>
+         */
+        public static double GetDouble(this byte[] source, bool isLittleEndian = false)
+        {
+            // Create an double from the array and return the value
+            return BitConverter.ToDouble(
+                CopyCheck(source, NumBytes64Bits, isLittleEndian),
+                0);
+        }
         #endregion
 
 
