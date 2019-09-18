@@ -79,17 +79,17 @@ namespace Pradoxzon.CommOps.Arrays
             int readIndex = 0;
 
             // Get the number of strings in the byte array
-            int numStrings = source.Subset(NumBytes32Bits).GetInt();
+            int numStrings = source.Subset(NumBytes32Bits).GetInt(isLittleEndian);
             readIndex += NumBytes32Bits;
 
             // Get all of the strings from the byte array
             int strLen = 0;
             for (int i = 0; i < numStrings; i++)
             {
-                strLen = source.Subset(readIndex, NumBytes32Bits).GetInt();
+                strLen = source.Subset(readIndex, NumBytes32Bits).GetInt(isLittleEndian);
                 readIndex += NumBytes32Bits;
 
-                result.Add(source.Subset(readIndex, strLen * 2).GetString());
+                result.Add(source.Subset(readIndex, strLen * 2).GetString(isLittleEndian));
                 readIndex += strLen * 2;
             }
 
@@ -278,7 +278,7 @@ namespace Pradoxzon.CommOps.Arrays
 
             // Reverse the array if necessary
             if (isLittleEndian ^ BitConverter.IsLittleEndian)
-                srcCopy.Reverse();
+                Array.Reverse(srcCopy);
             
             // Return the copy of the array
             return srcCopy;
