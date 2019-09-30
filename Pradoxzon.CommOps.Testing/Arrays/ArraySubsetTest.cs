@@ -21,7 +21,7 @@ namespace Pradoxzon.CommOps.Testing.Arrays
     public class ArraySubsetTest
     {
         #region AreArraysEqual
-        private static bool AreArraysEqual<T>(T[] array1, T[] array2) where T : IEquatable<T>
+        public static bool AreArraysEqual<T>(T[] array1, T[] array2) where T : IEquatable<T>
         {
             // Lengths must match
             if (array1.Length != array2.Length)
