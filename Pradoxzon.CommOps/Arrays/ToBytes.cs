@@ -65,20 +65,6 @@ namespace Pradoxzon.CommOps.Arrays
          */
         public static byte[] GetBytes(this List<string> strList, bool resultLittleEndian = false)
         {
-            var bList = new List<byte>();
-
-            // Add the number of strings
-            bList.AddRange(strList.Count.GetBytes(resultLittleEndian));
-
-            // Add the length of each string and the string itself
-            foreach (var str in strList)
-            {
-                bList.AddRange(str.Length.GetBytes(resultLittleEndian));
-                bList.AddRange(str.GetBytes(resultLittleEndian));
-            }
-
-            //return bList.ToArray();
-
             return strList.Count.GetBytes(resultLittleEndian).Concat(
                 strList.SelectMany(
                     x =>
