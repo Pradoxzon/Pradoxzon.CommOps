@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Arrays\ArraySubsetTest.cs" />
     <Compile Include="Arrays\FromBytesTest.cs" />
+    <Compile Include="Arrays\ToBytesTest.cs" />
     <Compile Include="Math\BitMathTest.cs" />
     <Compile Include="Math\IntMathTest.cs" />
     <Compile Include="Math\FMathTest.cs" />
