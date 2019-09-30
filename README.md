@@ -29,4 +29,4 @@ Provides methods for performing calculations on floating point numbers.
 Defines extensions to the base integer types for common math operations.
 
 ## Unit Testing
-The source code contains a unit test project that is used to help development, but the unit tests are not meant to be included with any distributions.
+The source code contains a unit test project that is used to help development, but the unit tests are not meant to be included with any distributions. There are unit tests for every class and every function in the main project.
