@@ -20,9 +20,9 @@ namespace Pradoxzon.CommOps.Arrays
 
 
     /**
-     * Defines an extension to arrays that copies part of the
+     * <summary>Defines an extension to arrays that copies part of the
      * source array and returns the resulting array instead of
-     * assigning the result to a function argument.
+     * assigning the result to a function argument.</summary>
      */
     public static class ArraySubset
     {
