@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Arrays\ArraySubset.cs" />
     <Compile Include="Arrays\FromBytes.cs" />
+    <Compile Include="Arrays\ToBytes.cs" />
     <Compile Include="Math\BitMath.cs" />
     <Compile Include="Math\FMath.cs" />
     <Compile Include="Math\IntMath.cs" />
